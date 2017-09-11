@@ -33,6 +33,7 @@
             if (response.zip_codes.length === 0) {
                 alert("failed zip lookup");
             } else {
+                console.log(response);
                 for (i = 0; i < response.zip_codes.length; i++) {
                     zipArray[i] = response.zip_codes[i].zip_code;
                 }
