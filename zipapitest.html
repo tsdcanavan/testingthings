@@ -17,7 +17,8 @@
       method: "GET"
     }).done(function(response) {
         console.log(response);
-        for (i=0; i<response.zip_codes.length, i++) {
+        console.log(response.zip_codes.length);
+        for (i=0; i<response.zip_codes.length; i++) {
             console.log("zip: " + response.zip_codes[i].zipcode);
         }
         alert(response);
