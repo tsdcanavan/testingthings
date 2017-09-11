@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    var request="https://www.zipcodeapi.com/rest/7KAIvGBBQE5NvzHip2gD1kSQAqjc0xp7i0POGrpw6vkB51Tu3a84u0V4rehrMGz4/radius.json/07727/10/mile";
+    console.log(request);
+    $.ajax({
+      url: request,
+      method: "GET"
+    }).done(function(response) {
+        alert(response)
+    });
+    </script>
+    
+<!--    <script type="text/javascript">
+        var client = new XMLHttpRequest();
+        client.open("GET", "http://api.zippopotam.us/us/90210", true);
+        client.onreadystatechange = function() {
+            if(client.readyState == 4) {
+                alert(client.responseText);
+            };
+        };
+        
+        client.send();
+        </script>
+    -->                    
+</body>
+</html>
+
