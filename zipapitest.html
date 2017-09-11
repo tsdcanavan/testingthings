@@ -15,6 +15,7 @@
         // zipInput is the requested zip, we default the radius to 10 miles
         var zipInput = "08873";
         var zipArray = [];
+        var zipResponse = false;
 
         if (zipInput === "") {
             zipInput = "08873";
@@ -34,7 +35,9 @@
             }).done(function (response) {
                 if (response.zip_codes.length === 0) {
                     alert("failed zip lookup");
+                    zipResponse = false;
                 } else {
+                    zipResponse = true;
                     console.log(response);
                     for (i = 0; i < response.zip_codes.length; i++) {
                         zipArray[i] = response.zip_codes[i].zip_code;
@@ -42,7 +45,7 @@
                 }
             });
         }
-        if (response.zip_codes.length === 0 || zipInput.length != 5) {
+        if (zipResponse === false || zipInput.length != 5) {
             //search itemName, itemDesc, itemTags
         }
     </script>
