@@ -10,19 +10,28 @@
 <body>
 
     <script type="text/javascript">
-    var request="https://www.zipcodeapi.com/rest/js-wAyUdNRpP6Np73vS03R6gNZ4yl9v22jyDStRFlgvr4Uz7qs8tkeK7eOGzYcC1vbE/radius.json/07727/10/mile";
+    // zipInput is the requested zip, we default the radius to 10 miles
+    var zipInput;
+    var zipArray = [];
+
+    if (zipInput === "") {
+        zipInput = "08873";
+    }
+
+    // zipcodeapi.com   -   zip code api
+    var request="https://www.zipcodeapi.com/rest/" +
+    "js-wAyUdNRpP6Np73vS03R6gNZ4yl9v22jyDStRFlgvr4Uz7qs8tkeK7eOGzYcC1vbE/" +
+    "radius.json/" + zipInput +"/10/mile";
     console.log(request);
     $.ajax({
       url: request,
       method: "GET"
     }).done(function(response) {
-        console.log(response);
-        console.log(response.zip_codes.length);
         for (i=0; i<response.zip_codes.length; i++) {
-            console.log("zip: " + response.zip_codes[i].zip_code);
+            zipArray[i] = response.zip_codes[i].zip_code;
         }
-        alert(response);
     });
+    console.log(zipArray);
     </script>
     
 <!--    <script type="text/javascript">
