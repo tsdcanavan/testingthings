@@ -45,29 +45,29 @@
                 url: request,
                 method: "GET"
             }).done(function (response) {
+                console.log(response);
                 for (i = 0; i < zip_codes.length; i++) {
                     if (response.zip_codes[i].distance === 0) {
                         var apiCity = response.zip_codes[i].city;
-                        var apiState = respons.zip_codes[i].state;
+                        var apiState = response.zip_codes[i].state;
+                        var apiZip = response.zip_codes[i].zipcode;
+                        database.ref().push({
+                            userName: "",
+                            userEmail: loginEmail,
+                            userPwd: password,
+                            userLocation: {
+                                city: apiCity,
+                                state: apistate,
+                                zip: zipCode
+                            }
+                        });
                     }
                 }
-                console.log(response);
             });
-    database.ref().push({
-                    userName: "",
-                    userEmail: loginEmail,
-                    userPwd: password,
-                    userLocation: {
-                        city: apiCity,
-                        state: apistate,
-                        zip: zipCode
-                    }
-                });
         }
 
         initFirebase();
-        addUser("myemail@home.com","08846","password");
-
+        addUser("myemail@home.com", "08846", "password");
     </script>
 </body>
 
