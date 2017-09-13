@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+        var config = {
+        apiKey: "AIzaSyAcRiiCDBcNgsBJA-ZQYa3jCNWh9u1YbNY",
+        authDomain: "sellyourstuff-d04db.firebaseapp.com",
+        databaseURL: "https://sellyourstuff-d04db.firebaseio.com",
+        projectId: "sellyourstuff-d04db",
+        storageBucket: "sellyourstuff-d04db.appspot.com",
+        messagingSenderId: "37415365376"
+    };
+    firebase.initializeApp(config);
+
+    // Get a reference to the database service
+    database = firebase.database();
+
+    var id;
+    var itemId;
+    var message;
+
+    database.ref().push({
+        userName: "my name",
+        userEmail: "email@email.com",
+        userPwd: "xxxyyy",
+        userLocation: "city, state,zip"
+    });
+
+    database.ref().on('child_added', function(snapshot) {
+    message = snapshot.val();
+    id = snapshot.key;
+    console.log(message);
+    console.log(id);
+    });
+    
+    database.ref(id).push({
+        itemName: "table",
+        itemDesc: "Lots of description",
+        itemQty: 4,
+        itemPrice: 12.99,
+        itemTags: "tag1, tag2, tag3",
+        itemImg: "url infor"
+    });
+    database.ref(id).on('child_added', function(snapshot) {
+    message = snapshot.val();
+    itemId = snapshot.key;
+    console.log(message);
+    console.log(itemId);
+    });
+
+    database.ref(id).push({
+        itemName: "chair",
+        itemDesc: "sitdown",
+        itemQty: 2,
+        itemPrice: 85.00,
+        itemTags: "tagger1, tagger2, tagger3",
+        itemImg: "url infor"
+    });
+    database.ref(id).on('child_added', function(snapshot) {
+    message = snapshot.val();
+    itemId = snapshot.key;
+    console.log(message);
+    console.log(itemId);
+    });
+    
+
+    </script>
+</body>
+</html>

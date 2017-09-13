@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script type='text/javascript'>
+        zipCode = '08846';
+        var request = "https://www.zipcodeapi.com/rest/" +
+            "js-wAyUdNRpP6Np73vS03R6gNZ4yl9v22jyDStRFlgvr4Uz7qs8tkeK7eOGzYcC1vbE/" +
+            "radius.json/" + zipCode + "/1/mile";
+        $.ajax({
+            url: request,
+            method: "GET"
+        }).done(function (response) {
+            console.log(response);
+        });
+
+    </script>
+</body>
+
+</html>
