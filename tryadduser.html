@@ -51,7 +51,7 @@
                     }
                 }
                 console.log(response);
-            }
+            });
     database.ref().push({
                     userName: "",
                     userEmail: loginEmail,
@@ -62,12 +62,11 @@
                         zip: zipCode
                     }
                 });
-            loginSuccess = false;
         }
 
         initFirebase();
         addUser("myemail@home.com","08846","password");
-        
+
     </script>
 </body>
 
