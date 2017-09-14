@@ -46,8 +46,8 @@
                 database.ref().on('value', function(snapshot) {
                 var id = snapshot.key;
                 console.log("key " + id);
-                    console.log(snapshot.val().id.userEmail);
-                if (snapshot.val().id.userEmail === loginEmail) {
+                    console.log(snapshot.val(id).userEmail);
+                if (snapshot.val(id).userEmail === loginEmail) {
                     userId = snapshot.key;
                     loginSuccess = false;
                     console.log("add status: " + loginSuccess);
