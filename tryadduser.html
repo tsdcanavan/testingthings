@@ -50,7 +50,7 @@
                     if (response.zip_codes[i].distance === 0) {
                         var apiCity = response.zip_codes[i].city;
                         var apiState = response.zip_codes[i].state;
-                        var apiZip = response.zip_codes[i].zipcode;
+                        var apiZip = response.zip_codes[i].zip_code;
                         database.ref().push({
                             userName: "",
                             userEmail: loginEmail,
@@ -58,7 +58,7 @@
                             userLocation: {
                                 city: apiCity,
                                 state: apistate,
-                                zip: zipCode
+                                zip: apiZip
                             }
                         });
                     }
