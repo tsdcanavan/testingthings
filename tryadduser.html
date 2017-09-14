@@ -46,7 +46,7 @@
                 method: "GET"
             }).done(function (response) {
                 console.log(response);
-                for (i = 0; i < zip_codes.length; i++) {
+                for (i = 0; i < response.zip_codes.length; i++) {
                     if (response.zip_codes[i].distance === 0) {
                         var apiCity = response.zip_codes[i].city;
                         var apiState = response.zip_codes[i].state;
