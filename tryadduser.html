@@ -51,6 +51,8 @@
                         loginSuccess = false;
                         return loginSuccess;
                     }
+                    console.log(snapshot.val().userEmail);
+                    console.log(userId);
                 });
 
                 if (loginSuccess === false) {
