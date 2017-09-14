@@ -35,6 +35,8 @@
             var password;
             var zipCode;
             var name;
+            var userId;
+            var userEmail;
 
             var request = "https://www.zipcodeapi.com/rest/" +
                 "js-wAyUdNRpP6Np73vS03R6gNZ4yl9v22jyDStRFlgvr4Uz7qs8tkeK7eOGzYcC1vbE/" +
@@ -45,14 +47,14 @@
             }).done(function (response) {
                 loginSuccess = "";
                 database.ref().on('child_added', function (snapshot) {
-                    var userId = snapshot.key;
+                    userId = snapshot.key;
                     if (snapshot.val().userEmail === loginEmail) {
                         userId = snapshot.key;
                         loginSuccess = false;
                         return loginSuccess;
                     }
                 });
-                console.log(snapshot.val().userEmail);
+                console.log(userEmail);
                 console.log(userId);
 
                 if (loginSuccess === false) {
