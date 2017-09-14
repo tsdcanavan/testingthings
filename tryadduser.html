@@ -34,11 +34,12 @@
             var loginEmail;
             var password;
             var zipCode;
-            
-            database.ref().on('child_added', function (snapshot) {
-                if (userEmail === loginEmail) {
+
+            database.ref().on('value', function(snapshot) {
+                if (snapshot.val().userEmail === loginEmail) {
                     userId = snapshot.key;
                     loginSuccess = false;
+                    console.log("add status: " + loginSuccess);
                     return loginSuccess;
                 }
             });
