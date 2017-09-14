@@ -29,11 +29,12 @@
 
         }
 
-        function addUser(loginEmail, zipCode, password) {
+        function addUser(loginEmail, zipCode, password, name) {
             // login user and get the users key
             var loginEmail;
             var password;
             var zipCode;
+            var name;
 
             var request = "https://www.zipcodeapi.com/rest/" +
                 "js-wAyUdNRpP6Np73vS03R6gNZ4yl9v22jyDStRFlgvr4Uz7qs8tkeK7eOGzYcC1vbE/" +
@@ -62,7 +63,7 @@
                         var apiState = response.zip_codes[i].state;
                         var apiZip = response.zip_codes[i].zip_code;
                         database.ref().push({
-                            userName: "",
+                            userName: name,
                             userEmail: loginEmail,
                             userPwd: password,
                             userLocation: {
@@ -77,7 +78,7 @@
         }
 
         initFirebase();
-        addUser("myemail@home.com", "08846", "password");
+        addUser("myemail@home.com", "08846", "password", "my name");
     </script>
 </body>
 
