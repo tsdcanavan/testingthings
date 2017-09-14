@@ -31,6 +31,10 @@
 
         function addUser(loginEmail, zipCode, password) {
             // login user and get the users key
+            var loginEmail;
+            var password;
+            var zipCode;
+            
             database.ref().on('child_added', function (snapshot) {
                 if (userEmail === loginEmail) {
                     userId = snapshot.key;
