@@ -36,7 +36,7 @@
             var zipCode;
 
             database.ref().on('value', function(snapshot) {
-                console.log(snapshot.val().userEmail);
+                console.log(snapshot.val());
                 if (snapshot.val().userEmail === loginEmail) {
                     userId = snapshot.key;
                     loginSuccess = false;
