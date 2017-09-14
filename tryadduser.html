@@ -45,15 +45,15 @@
             }).done(function (response) {
                 loginSuccess = "";
                 database.ref().on('child_added', function (snapshot) {
-                    var id = snapshot.key;
+                    var userId = snapshot.key;
                     if (snapshot.val().userEmail === loginEmail) {
                         userId = snapshot.key;
                         loginSuccess = false;
                         return loginSuccess;
                     }
-                    console.log(snapshot.val().userEmail);
-                    console.log(userId);
                 });
+                console.log(snapshot.val().userEmail);
+                console.log(userId);
 
                 if (loginSuccess === false) {
                     return loginSuccess;
