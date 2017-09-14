@@ -42,19 +42,19 @@
                 url: request,
                 method: "GET"
             }).done(function (response) {
-
+                loginSuccess = "";
                 database.ref().on('child_added', function (snapshot) {
                     var id = snapshot.key;
-                    console.log("key " + id);
-                    console.log(snapshot.val().userEmail);
                     if (snapshot.val().userEmail === loginEmail) {
                         userId = snapshot.key;
                         loginSuccess = false;
-                        console.log("add status: " + loginSuccess);
                         return loginSuccess;
                     }
                 });
 
+                if (loginSuccess === false) {
+                    return loginSuccess;
+                }
                 console.log(response);
                 for (i = 0; i < response.zip_codes.length; i++) {
                     if (response.zip_codes[i].distance === 0) {
